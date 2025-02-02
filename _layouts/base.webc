@@ -8,17 +8,15 @@
     <link rel="shortcut icon" href="" />
 
     <!-- site-wide styles -->
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="../css/base.css" webc:keep />
+    <!-- theme-specific styles -->
+    <link rel="stylesheet" :href="`../css/${theme}.css`" webc:keep />
 
-    <title>
-      claire freehafer — {{ title }}
-    </title>
-    <!-- head.html -->
+    <title @text="`claire freehafer – ${title}`"></title>
+
 
   </head>
 
-  <body>
-    {{ content }}
-  </body>
+  <body @raw="content"></body>
 
 </html>
