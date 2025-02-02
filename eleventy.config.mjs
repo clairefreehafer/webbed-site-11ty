@@ -7,5 +7,6 @@ export default async function(eleventyConfig) {
 	eleventyConfig.addPlugin(pluginWebc);
 	eleventyConfig.addPlugin(eleventySass);
 
-	eleventyConfig.addPassthroughCopy("css/base.css");
+	eleventyConfig.addPassthroughCopy("css/**/*.css");
+	eleventyConfig.addPassthroughCopy("fonts/**");
 };

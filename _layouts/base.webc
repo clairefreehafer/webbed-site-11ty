@@ -5,18 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="" />
-
+    <link rel="shortcut icon" href="/favicon.ico" />
     <!-- site-wide styles -->
     <link rel="stylesheet" href="../css/base.css" webc:keep />
     <!-- theme-specific styles -->
-    <link rel="stylesheet" :href="`../css/${theme}.css`" webc:keep />
+    <link rel="stylesheet" :href="`../css/${theme}/style.css`" webc:keep />
 
     <title @text="`claire freehafer – ${title}`"></title>
-
-
   </head>
 
   <body @raw="content"></body>
-
 </html>

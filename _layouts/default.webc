@@ -1,4 +1,36 @@
 ---
 layout: base.webc
 ---
-<main @raw="content"></main>
+<script webc:setup>
+  function getBuildDate() {
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0')
+    const yyyy = today.getFullYear();
+
+    return `${yyyy}/${mm}/${dd}`;
+  }
+</script>
+
+<div id="stars1"></div>
+<div id="stars2"></div>
+<div id="stars3"></div>
+
+<div class="container">
+  <header class="header">
+    <h1>claire freehafer</h1>
+    <nav>nav</nav>
+  </header>
+
+  <main>
+    <h2 @text="title"></h2>
+    <section class="content" @raw="content"></section>
+  </main>
+
+  <footer class="footer">
+    <p>
+      made with <a href="https://11ty.dev" target="_blank">11ty</a> | <s>hosted on <a href="https://neocities.org" target="_blank">neocties</a></s> | source code on <a href="https://github.com/clairefreehafer/webbed-site-11ty">github</a>
+    </p>
+    <p @text="`last updated ${getBuildDate()}`"></p>
+  </footer>
+</div>
