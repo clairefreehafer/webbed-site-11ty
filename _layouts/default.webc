@@ -2,6 +2,18 @@
 layout: base.webc
 ---
 <script webc:setup>
+  function generateNav() {
+    const navPages = eleventyNavigation($data.collections.all);
+
+    const navigationOptions = {
+      activeAnchorClass: "active",
+      activeKey: $data.eleventyNavigation.key,
+      listClass: "nav-list",
+    };
+
+    return eleventyNavigationToHtml(navPages, navigationOptions);
+  }
+
   function getBuildDate() {
     const today = new Date();
     const dd = String(today.getDate()).padStart(2, '0');
@@ -19,11 +31,11 @@ layout: base.webc
 <div class="container">
   <header class="header">
     <h1>claire freehafer</h1>
-    <nav>nav</nav>
+    <nav @html="generateNav()"></nav>
   </header>
 
   <main>
-    <h2 @text="title"></h2>
+    <!-- <h2 @text="title"></h2> -->
     <section class="content" @raw="content"></section>
   </main>
 

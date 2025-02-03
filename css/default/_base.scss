@@ -49,6 +49,18 @@ html {
   }
 }
 
+header {
+  border-bottom: 1px dotted white;
+  padding-bottom: 1rem;
+}
+
+ul.nav-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  gap: 1rem;
+}
+
 main {
   margin: 1rem 0;
   display: flex;

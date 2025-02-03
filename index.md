@@ -1,7 +1,9 @@
 ---
+eleventyNavigation:
+  key: home
 layout: default.webc
 theme: default
 title: home
 ---
 
-# HII
+welcome to v4 of my website, aka the 11ty edition.
