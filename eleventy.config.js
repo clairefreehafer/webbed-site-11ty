@@ -23,14 +23,14 @@ export default async function(eleventyConfig) {
   eleventyConfig.addExtension("scss", {
     outputFileExtension: "css",
     compile: async function (inputContent, inputPath) {
-      let parsed = path.parse(inputPath);
+      const parsed = path.parse(inputPath);
       if (parsed.name.startsWith("_")) {
         return;
       }
 
       // let targets = browserslistToTargets(browserslist(browserslistTargets));
 
-      let result = sass.compileString(inputContent, {
+      const result = sass.compileString(inputContent, {
         loadPaths: [parsed.dir || "."],
         sourceMap: false,
       });
@@ -48,9 +48,9 @@ export default async function(eleventyConfig) {
       };
     },
     compileOptions: {
-      permalink: function(contents, inputPath) {
+      permalink: function(_contents, inputPath) {
         return (data) => {
-          let parsed = path.parse(inputPath);
+          const parsed = path.parse(inputPath);
           if (parsed.name.startsWith("_")) {
             return false;
           }
