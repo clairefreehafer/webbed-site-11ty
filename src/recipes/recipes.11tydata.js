@@ -2,7 +2,7 @@ export default {
 	eleventyComputed: {
 		eleventyNavigation: {
 			key: (data) => data.page.fileSlug,
-			// parent: (data) => data.page.fileSlug !== 'recipes' ? 'recipes' : undefined
+			title: (data) => data.title,
 		},
 	},
   layout: "default/base.webc"

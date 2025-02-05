@@ -1,9 +1,12 @@
-import pluginWebc from "@11ty/eleventy-plugin-webc";
-import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
 import * as sass from "sass";
 import path from "node:path";
 import { transform } from "lightningcss";
 
+import pluginWebc from "@11ty/eleventy-plugin-webc";
+import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
+import recipesPlugin from "./config/recipes-plugin.js";
+
+/** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function(eleventyConfig) {
   eleventyConfig.setInputDirectory("src");
   eleventyConfig.setLayoutsDirectory("_layouts");
@@ -12,54 +15,18 @@ export default async function(eleventyConfig) {
     components: "src/_components/**/*.webc",
   });
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+  eleventyConfig.addPlugin(recipesPlugin);
 
   eleventyConfig.addPassthroughCopy({ "src/_fonts": "fonts" });
   eleventyConfig.addPassthroughCopy({ "src/_style/base.css": "css/base.css" });
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
 
-  eleventyConfig.addCollection("meals", (collectionsApi) => {
-    const pagesToAdd = collectionsApi.getFilteredByGlob("src/recipes/meals/*.md");
-    console.log(`[11ty] Adding ${pagesToAdd.length} page(s) to "meals" collection`);
-    return pagesToAdd;
-  });
-  eleventyConfig.addCollection("ingredients_food", (collectionsApi) => {
-    const mealRecipes = collectionsApi
-      .getFilteredByGlob("src/recipes/meals/*.md")
-      .filter((recipe) => !recipe.page.inputPath.includes("index"));
+  // eleventyConfig.addCollection("meals", (collectionsApi) => {
+  //   const pagesToAdd = collectionsApi.getFilteredByGlob("src/recipes/meals/*.md");
+  //   console.log(`[11ty] Adding ${pagesToAdd.length} page(s) to "meals" collection`);
+  //   return pagesToAdd;
+  // });
 
-    const foodIngredients = [];
-
-    for (const recipe of mealRecipes) {
-      const { ingredients } = recipe.data;
-
-      for (const ingredient of ingredients) {
-        if (foodIngredients.indexOf(ingredient) === -1) {
-          foodIngredients.push(ingredient);
-        }
-      }
-    }
-    console.log(`[11ty] Adding ${foodIngredients.length} food ingredients.`);
-    return foodIngredients;
-  });
-  eleventyConfig.addCollection("ingredients_drink", (collectionsApi) => {
-    const mealRecipes = collectionsApi
-      .getFilteredByGlob("src/recipes/cocktails/*.md")
-      .filter((recipe) => !recipe.page.inputPath.includes("index"));
-
-    const drinkIngredients = [];
-
-    for (const recipe of mealRecipes) {
-      const { ingredients } = recipe.data;
-
-      for (const ingredient of ingredients) {
-        if (drinkIngredients.indexOf(ingredient) === -1) {
-          drinkIngredients.push(ingredient);
-        }
-      }
-    }
-    console.log(`[11ty] Adding ${drinkIngredients.length} drink ingredients.`);
-    return drinkIngredients;
-  });
 
   // eleventyConfig.addFilter("recipesWithIngredient", (collection, ingredient) => {
   //   // if (!ingredient) return collection;
