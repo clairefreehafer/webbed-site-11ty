@@ -1,6 +1,4 @@
 ---
-eleventyNavigation:
-  key: lists
 title: lists
 ---
 
