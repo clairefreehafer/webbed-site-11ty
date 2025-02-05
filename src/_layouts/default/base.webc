@@ -5,6 +5,9 @@ theme: default
 <script webc:setup>
   function generateNav(activeKey) {
     const navPages = eleventyNavigation($data.collections.all);
+    const rootNavPages = navPages.map((page) => {
+      return { ...page, children: undefined };
+    })
 
     const navigationOptions = {
       activeAnchorClass: "active",
@@ -12,7 +15,7 @@ theme: default
       listClass: "nav-list",
     };
 
-    return eleventyNavigationToHtml(navPages, navigationOptions);
+    return eleventyNavigationToHtml(rootNavPages, navigationOptions);
   }
 
   function getBuildDate() {
