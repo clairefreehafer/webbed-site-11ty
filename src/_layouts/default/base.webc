@@ -1,13 +1,14 @@
 ---
-layout: base.webc
+layout: _base.webc
+theme: default
 ---
 <script webc:setup>
-  function generateNav() {
+  function generateNav(activeKey) {
     const navPages = eleventyNavigation($data.collections.all);
 
     const navigationOptions = {
       activeAnchorClass: "active",
-      activeKey: $data.eleventyNavigation.key,
+      activeKey: activeKey,
       listClass: "nav-list",
     };
 
@@ -31,7 +32,7 @@ layout: base.webc
 <div class="container">
   <header class="header">
     <h1>claire freehafer</h1>
-    <nav @html="generateNav()"></nav>
+    <nav @html="generateNav($data.eleventyNavigation?.key)"></nav>
   </header>
 
   <main>
@@ -45,4 +46,6 @@ layout: base.webc
     </p>
     <p @text="`last updated ${getBuildDate()}`"></p>
   </footer>
+
+  <section class="debug" @text="JSON.stringify($data.eleventyNavigation)"></section>
 </div>
