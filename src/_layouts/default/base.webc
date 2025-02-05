@@ -39,7 +39,7 @@ theme: default
   </header>
 
   <main>
-    <!-- <h2 @text="title"></h2> -->
+    <h2 @text="title"></h2>
     <section class="content" @raw="content"></section>
   </main>
 

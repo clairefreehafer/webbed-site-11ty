@@ -12,6 +12,8 @@ ingredients: [
 ]
 ---
 
+{{ ingredients }}
+
 #### ingredients
 
 - 1.5 c arborio rice

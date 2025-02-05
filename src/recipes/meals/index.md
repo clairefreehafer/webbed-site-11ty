@@ -2,4 +2,4 @@
 title: meals
 ---
 
-meals
+{{ collections.all | eleventyNavigation: "meals" | eleventyNavigationToMarkdown }}
