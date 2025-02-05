@@ -5,20 +5,20 @@ import path from "node:path";
 import { transform } from "lightningcss";
 
 export default async function(eleventyConfig) {
-	eleventyConfig.setInputDirectory("src");
+  eleventyConfig.setInputDirectory("src");
   eleventyConfig.setLayoutsDirectory("_layouts");
 
-	eleventyConfig.addPlugin(pluginWebc, {
-		components: "src/_components/**/*.webc",
-	});
-	eleventyConfig.addPlugin(eleventyNavigationPlugin);
+  eleventyConfig.addPlugin(pluginWebc, {
+    components: "src/_components/**/*.webc",
+  });
+  eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
-	eleventyConfig.addPassthroughCopy({ "src/_fonts": "fonts" });
-	eleventyConfig.addPassthroughCopy({ "src/_style/base.css": "css/base.css" });
-	eleventyConfig.addPassthroughCopy("favicon.ico");
+  eleventyConfig.addPassthroughCopy({ "src/_fonts": "fonts" });
+  eleventyConfig.addPassthroughCopy({ "src/_style/base.css": "css/base.css" });
+  eleventyConfig.addPassthroughCopy("favicon.ico");
 
-	// copied from https://github.com/5t3ph/eleventy-plugin-sass-lightningcss
-	// with some tweaks to use a custom output path.
+  // copied from https://github.com/5t3ph/eleventy-plugin-sass-lightningcss
+  // with some tweaks to use a custom output path.
   eleventyConfig.addTemplateFormats("scss");
   eleventyConfig.addExtension("scss", {
     outputFileExtension: "css",
@@ -47,18 +47,18 @@ export default async function(eleventyConfig) {
         return code;
       };
     },
-		compileOptions: {
-			permalink: function(contents, inputPath) {
-				return (data) => {
-					let parsed = path.parse(inputPath);
-					if (parsed.name.startsWith("_")) {
-						return false;
-					}
-					const filePathSplit = data.page.filePathStem.split('/');
-					const parentFolderName = filePathSplit[filePathSplit.length - 2];
-					return `css/${parentFolderName}.css`;
-				}
-			}
-		}
+    compileOptions: {
+      permalink: function(contents, inputPath) {
+        return (data) => {
+          let parsed = path.parse(inputPath);
+          if (parsed.name.startsWith("_")) {
+            return false;
+          }
+          const filePathSplit = data.page.filePathStem.split('/');
+          const parentFolderName = filePathSplit[filePathSplit.length - 2];
+          return `css/${parentFolderName}.css`;
+        }
+      }
+    }
   });
 };
