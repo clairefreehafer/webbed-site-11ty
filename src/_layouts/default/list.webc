@@ -1,0 +1,10 @@
+---
+layout: default/_base.webc
+---
+
+
+<h2 @text="$data.title"></h2>
+
+<section class="content" @raw="content"></section>
+<tags @heading="tags" :@data="$data.listItems"></tags>
+

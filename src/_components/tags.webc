@@ -1,0 +1,6 @@
+<section class="tags">
+  <h4 @text="heading"></h4>
+  <ul class="see-more_list" webc:for="item of data">
+    <li><a :href="`${linkPrefix}${item}`" @text="item"></a></li>
+  </ul>
+</section>

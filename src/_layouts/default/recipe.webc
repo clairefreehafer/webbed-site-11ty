@@ -1,0 +1,9 @@
+---
+layout: default/_base.webc
+---
+
+<h2 @text="$data.title"></h2>
+<p class="recipe-source">[ <a href="$data.sourceUrl">source</a> ]</p>
+
+<section class="content" @raw="content"></section>
+<tags @heading="see more" :@data="$data.ingredients" @link-prefix="/ingredients/"></tags>

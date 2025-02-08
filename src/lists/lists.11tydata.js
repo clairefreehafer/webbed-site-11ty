@@ -1,10 +1,7 @@
 export default {
-	eleventyComputed: {
-		eleventyNavigation: {
-			key: (data) => data.page.fileSlug,
-			parent: (data) => data.page.fileSlug !== 'lists' ? 'lists' : undefined
-		},
+  eleventyComputed: {
+		layout: (data) => !data.page.inputPath.includes('index') ? 'default/list.webc' : 'default/default.webc'
 	},
-  layout: "default/base.webc"
+	theme: "default"
 };
 

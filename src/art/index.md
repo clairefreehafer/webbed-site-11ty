@@ -3,6 +3,7 @@ name: art
 title: art
 tags: root
 date: 1901-01-01
+layout: default/default.webc
 ---
 
 ### ~~photography~~

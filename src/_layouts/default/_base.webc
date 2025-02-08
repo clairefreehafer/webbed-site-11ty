@@ -26,6 +26,17 @@ theme: default
 
     return `${yyyy}/${mm}/${dd}`;
   }
+
+  function getActiveNavLink(currentUrl, pageUrl) {
+    // do root separate because "/" matches all URLs
+    if (pageUrl === "/" && currentUrl === "/") {
+      return "active";
+    }
+    if (currentUrl.includes(pageUrl) && pageUrl !== "/") {
+      return "active";
+    }
+    return "";
+  }
 </script>
 
 <div id="stars1"></div>
@@ -38,16 +49,13 @@ theme: default
     <nav>
       <ul class="nav-list">
         <li webc:for="page of $data.collections.root">
-          <a :href="page.url" @text="page.data.title" :class="page.url === $data.page.url ? 'active' : ''"></a>
+          <a :href="page.url" @text="page.data.title" :class="getActiveNavLink($data.page.url, page.url)"></a>
         </li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <h2 @text="title"></h2>
-    <section class="content" @raw="content"></section>
-  </main>
+  <main @raw="content"></main>
 
   <footer class="footer">
     <p>

@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: home
-layout: default/base.webc
+layout: default/default.webc
 title: home
 tags: root
 date: 1900-01-01

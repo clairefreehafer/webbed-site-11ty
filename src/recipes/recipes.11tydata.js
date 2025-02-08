@@ -5,6 +5,6 @@ export default {
 			title: (data) => data.title,
 		},
 	},
-  layout: "default/base.webc"
+  layout: "default/default.webc"
 };
 

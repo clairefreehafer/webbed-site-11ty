@@ -1,6 +1,6 @@
 ---
 title: site map
-layout: default/base.webc
+layout: default/default.webc
 ---
 
 {{ collections.all | eleventyNavigation | eleventyNavigationToMarkdown }}

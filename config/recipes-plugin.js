@@ -9,7 +9,6 @@ function generateCollections(eleventyConfig) {
       drink: []
     };
     const ingredientsToAdd = [];
-    // const
     const recipes = collectionsApi
       .getFilteredByGlob('src/recipes/**/*.md')
       .filter((recipe) => !recipe.page.inputPath.includes("index"));
@@ -22,7 +21,6 @@ function generateCollections(eleventyConfig) {
       } else {
         collectionsToCreate.cocktails.push(recipe);
       }
-      console.log(page.url)
       for (const ingredient of ingredients) {
         if (!ingredientsToAdd.includes(ingredient)) {
           ingredientsToAdd.push(ingredient);

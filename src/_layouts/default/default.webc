@@ -1,0 +1,6 @@
+---
+layout: default/_base.webc
+theme: default
+---
+
+<section class="content" @raw="content"></section>

@@ -5,6 +5,7 @@ import { transform } from "lightningcss";
 import pluginWebc from "@11ty/eleventy-plugin-webc";
 import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
 import recipesPlugin from "./config/recipes-plugin.js";
+import listsPlugin from "./config/lists-plugin.js";
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function(eleventyConfig) {
@@ -12,10 +13,11 @@ export default async function(eleventyConfig) {
   eleventyConfig.setLayoutsDirectory("_layouts");
 
   eleventyConfig.addPlugin(pluginWebc, {
-    components: "src/_components/**/*.webc",
+    components: "src/_components/*.webc",
   });
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(recipesPlugin);
+  eleventyConfig.addPlugin(listsPlugin);
 
   eleventyConfig.addPassthroughCopy({ "src/_fonts": "fonts" });
   eleventyConfig.addPassthroughCopy({ "src/_style/base.css": "css/base.css" });

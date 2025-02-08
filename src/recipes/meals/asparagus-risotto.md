@@ -2,14 +2,13 @@
 name: 'asparagus risotto'
 title: 'asparagus risotto'
 sourceUrl: 'https://www.hellofresh.com/recipes/2019-w14-r9-asparagus-risotto-5c6700cfe3f33901af389e42'
-ingredients: [
-  'risotto',
-  'asparagus',
-  'tomato',
-  'onion',
-  'parmesan',
-  'chili flake',
-]
+ingredients:
+  - risotto
+  - asparagus
+  - tomato
+  - onion
+  - parmesan
+  - chili flake
 ---
 
 #### ingredients
@@ -34,9 +33,3 @@ ingredients: [
 3. when risotto has cooked about 25 minutes, add **tomato** and **asparagus** to pan. cook, stirring, until veggies have softened, 5-7 minutes.
 
 4. stir **garlic herb butter** and half the **parmesan** into risotto. season with **salt** and **pepper**. divide risotto between plates and sprinkle with remaining **parmesan**. garnish with **chili flakes** if desired.
-
-### see more
-
-{%- for tag in tags %}
-- {{ tag }}
-{% endfor -%}

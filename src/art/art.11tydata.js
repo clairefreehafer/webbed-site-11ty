@@ -12,6 +12,5 @@ export default {
       // }
     },
   },
-  layout: "default/base.webc"
 };
 
