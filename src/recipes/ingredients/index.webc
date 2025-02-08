@@ -7,5 +7,7 @@ eleventyNavigation:
 ---
 
 <ul>
-  <li webc:for="recipe of $data.collections.ingredients" @text="recipe"></li>
+  <li webc:for="ingredient of $data.collections.ingredients">
+    <a :href="`/recipes/ingredients/${slugify(ingredient)}`" @text="ingredient"></a>
+  </li>
 </ul>

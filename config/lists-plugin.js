@@ -2,7 +2,7 @@ function generateCollections(eleventyConfig) {
   eleventyConfig.addCollection("lists", (collectionsApi) => {
     const listsCollection = collectionsApi
       .getFilteredByGlob('src/lists/**/*.md')
-      .filter((list) => !list.page.inputPath.includes("index"));
+      .filter((list) => !list.page.inputPath.includes("index") && !list.page.inputPath.includes("tags"));
     console.log(`[11ty] Creating "lists" collection with ${listsCollection.length} item(s)`);
     return listsCollection;
   });
@@ -15,12 +15,16 @@ function generateCollections(eleventyConfig) {
 
     for (const list of lists) {
       const { listItems } = list.data;
-      for (const listItem of listItems) {
-        if (listItemsCollection.indexOf(listItem) === -1) {
-          listItemsCollection.push(listItem);
+      if (listItems) {
+        for (const listItem of listItems) {
+          if (listItemsCollection.indexOf(listItem) === -1) {
+            listItemsCollection.push(listItem);
+          }
         }
       }
     }
+
+    // create collection for each list item
 
     console.log(`[11ty] Creating "listItems" collection with ${listItemsCollection.length} item(s)`);
     return listItemsCollection;

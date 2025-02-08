@@ -5,4 +5,4 @@ layout: default/_base.webc
 <p class="recipe-source">[ <a href="$data.sourceUrl">source</a> ]</p>
 
 <section class="content" @raw="content"></section>
-<tags @heading="see more" :@data="$data.ingredients" @link-prefix="/ingredients/"></tags>
+<tags @heading="see more" :@data="$data.ingredients" @link-prefix="/recipes/ingredients/"></tags>
