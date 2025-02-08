@@ -1,0 +1,28 @@
+---
+name: 'bulleit hot toddy'
+title: 'bulleit hot toddy'
+sourceUrl: 'https://www.bulleit.com/whiskey-drinks/hot-toddy'
+ingredients: [
+  'bourbon',
+]
+---
+
+#### ingredients
+
+- 1.25 oz bulleit bourbon
+- 3 oz. maple syrup
+- 3 oz. lemon juice
+- 1 cup hot water
+- 3-4 cinnamon sticks
+
+#### instructions
+
+1. heat water in a pot (non-reactive, minimum 2 cups) on the stove.
+
+2. add cinnamon sticks and steep for 10 minutes.
+
+3. remove from heat and add remaining ingredients.
+
+4. carefully pour into individual mugs.
+
+5. garnish with a cinnamon stick and serve.
