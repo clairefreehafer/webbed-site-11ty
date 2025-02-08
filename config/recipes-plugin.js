@@ -45,7 +45,7 @@ function generateCollections(eleventyConfig) {
     for (const item in collectionsToCreate) {
       // console.log(eleventyConfig.getCollections())
       if (!eleventyConfig.getCollections()[item]) {
-        console.log(`[11ty] Creating "${item}" collection with ${collectionsToCreate[item].length} item(s)`);
+        // console.log(`[11ty] Creating "${item}" collection with ${collectionsToCreate[item].length} item(s)`);
         eleventyConfig.addCollection(item, (_collectionsApi) => {
           return collectionsToCreate[item];
         });
