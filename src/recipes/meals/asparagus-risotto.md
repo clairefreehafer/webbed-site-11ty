@@ -12,8 +12,6 @@ ingredients: [
 ]
 ---
 
-{{ ingredients }}
-
 #### ingredients
 
 - 1.5 c arborio rice
@@ -36,3 +34,9 @@ ingredients: [
 3. when risotto has cooked about 25 minutes, add **tomato** and **asparagus** to pan. cook, stirring, until veggies have softened, 5-7 minutes.
 
 4. stir **garlic herb butter** and half the **parmesan** into risotto. season with **salt** and **pepper**. divide risotto between plates and sprinkle with remaining **parmesan**. garnish with **chili flakes** if desired.
+
+### see more
+
+{%- for tag in tags %}
+- {{ tag }}
+{% endfor -%}

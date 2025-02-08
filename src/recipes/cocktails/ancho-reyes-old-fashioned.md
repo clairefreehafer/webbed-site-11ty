@@ -8,6 +8,12 @@ ingredients: [
   'angostura bitters',
   'orange bitters',
 ]
+tags:
+ - cocktails
+ - ancho reyes
+ - bourbon
+ - angostura bitters
+ - orange bitters
 ---
 
 #### ingredients

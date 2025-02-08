@@ -35,7 +35,13 @@ theme: default
 <div class="container">
   <header class="header">
     <h1>claire freehafer</h1>
-    <nav @html="generateNav($data.eleventyNavigation?.key)"></nav>
+    <nav>
+      <ul class="nav-list">
+        <li webc:for="page of $data.collections.root">
+          <a :href="page.url" @text="page.data.title" :class="page.url === $data.page.url ? 'active' : ''"></a>
+        </li>
+      </ul>
+    </nav>
   </header>
 
   <main>

@@ -1,5 +1,7 @@
 ---
-title: cocktails
+title: cocktail recipes
 ---
 
-{{ collections.all | eleventyNavigation: "cocktails" | eleventyNavigationToMarkdown }}
+{%- for recipe in collections.cocktails %}
+- [{{ recipe.data.title }}]({{ recipe.data.page.url }})
+{% endfor -%}

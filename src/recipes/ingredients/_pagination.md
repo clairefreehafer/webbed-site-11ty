@@ -4,12 +4,13 @@ pagination:
   size: 1
   alias: ingredient
   addAllPagesToCollections: true
-permalink: "/recipes/ingredients/{{ ingredient.type[0] }}/{{ ingredient.type[1] }}/{{ ingredient.name | slugify }}/index.html"
+permalink: "/recipes/ingredients/{{ ingredient | slugify }}.html"
 eleventyComputed:
-  title:  "{{ ingredient.name }}"
+  title:  "recipes with {{ ingredient }}"
   eleventyNavigation:
     parent: "{{ ingredient.type[1] | slugify }}"
     key: "{{ ingredient.name | slugify }}"
+    title: "{{ ingredient.name }}"
 ---
 
 {{ title }}

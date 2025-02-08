@@ -1,7 +1,7 @@
 ---js
 {
   pagination: {
-    data: "collections.ingredients",
+    data: "collections.ingredientsData",
     size: 1,
     alias: "ingredientType",
     addAllPagesToCollections: true,
@@ -32,19 +32,19 @@
           ingredientTypeAdded.push(item.type[1])
         }
       }
-      console.log(ingredientTypePermalinks)
       return ingredientTypePermalinks;
     }
   },
   permalink: "{{ ingredientType.permalink }}",
   eleventyComputed: {
-    title: "{{ ingredientType.key }}",
+    title: "{{ ingredientType.key }} ingredients",
     eleventyNavigation: {
       parent: "{{ ingredientType.parent | slugify }}",
-      key: "{{ ingredientType.key | slugify }}"
+      key: "{{ ingredientType.key | slugify }}",
+      title: "{{ ingredientType.key }}"
     }
   }
 }
 ---
 
-{{ permalink }}
+{{ collections.all | eleventyNavigation: eleventyNavigation.key | eleventyNavigationToMarkdown }}

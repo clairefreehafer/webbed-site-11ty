@@ -1,47 +1,64 @@
 import ingredientTypesData from "../src/_data/recipes/ingredientTypes.json" with { type: "json" };
 
-const PATH_MAPPING = {
-  food: "meals",
-  drink: "cocktails",
-};
+function generateCollections(eleventyConfig) {
+  eleventyConfig.addCollection("ingredients", (collectionsApi) => {
+    const collectionsToCreate = {
+      meals: [],
+      cocktails: [],
+      food: [],
+      drink: []
+    };
+    const ingredientsToAdd = [];
+    // const
+    const recipes = collectionsApi
+      .getFilteredByGlob('src/recipes/**/*.md')
+      .filter((recipe) => !recipe.page.inputPath.includes("index"));
 
-const foodData = ingredientTypesData[0];
-const drinkData = ingredientTypesData[1];
-
-function generateIngredientArrays(collectionsApi) {
-    const ingredientObjects = [];
-    const ingredientsAdded = [];
-
-    for (const ingredientType in PATH_MAPPING) {
-      const recipes = collectionsApi
-        .getFilteredByGlob(`src/recipes/${PATH_MAPPING[ingredientType]}/*.md`)
-        .filter((recipe) => !recipe.page.inputPath.includes("index"));
-
-        for (const recipe of recipes) {
-          const { ingredients } = recipe.data;
-
-          for (const ingredient of ingredients) {
-            // check if we've processed the ingredient already or not.
-            if (ingredientsAdded.indexOf(ingredient) === -1) {
-              const foodSubType = foodData.items.find((item) => item.items.includes(ingredient))?.name;
-              const drinkSubType = drinkData.items.find((item) => item.items.includes(ingredient))?.name;
-              ingredientObjects.push({
-                name: ingredient,
-                type: [ingredientType, foodSubType ?? drinkSubType]
-              });
-
-              ingredientsAdded.push(ingredient);
-            }
+    for (const recipe of recipes) {
+      const { ingredients, page } = recipe.data;
+      // add recipe to recipe type
+      if (page.url.includes('meals')) {
+        collectionsToCreate.meals.push(recipe);
+      } else {
+        collectionsToCreate.cocktails.push(recipe);
+      }
+      console.log(page.url)
+      for (const ingredient of ingredients) {
+        if (!ingredientsToAdd.includes(ingredient)) {
+          ingredientsToAdd.push(ingredient);
+          // add ingredient to parent type collection
+          const ingredientType = Object.keys(ingredientTypesData).find((key) => ingredientTypesData[key].includes(ingredient));
+          if (collectionsToCreate[ingredientType]) {
+            collectionsToCreate[ingredientType].push(ingredient);
+          } else {
+            collectionsToCreate[ingredientType] = [ingredient];
           }
         }
+        // add page to ingredient collection
+        if (collectionsToCreate[ingredient]) {
+          collectionsToCreate[ingredient].push(recipe);
+        } else {
+          collectionsToCreate[ingredient] = [recipe];
+        }
+      }
     }
 
-    return ingredientObjects;
+
+    for (const item in collectionsToCreate) {
+      // console.log(eleventyConfig.getCollections())
+      if (!eleventyConfig.getCollections()[item]) {
+        console.log(`[11ty] Creating "${item}" collection with ${collectionsToCreate[item].length} item(s)`);
+        eleventyConfig.addCollection(item, (_collectionsApi) => {
+          return collectionsToCreate[item];
+        });
+      }
+    }
+
+    return ingredientsToAdd;
+  });
 }
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default function(eleventyConfig) {
-  eleventyConfig.addCollection("ingredients", (collectionsApi) => {
-    return generateIngredientArrays(collectionsApi);
-  });
+  generateCollections(eleventyConfig);
 }

@@ -1,0 +1,10 @@
+---
+title: ingredients
+eleventyNavigation:
+  key: ingredients
+  parent: recipes
+---
+
+<ul>
+  <li webc:for="recipe of $data.collections.ingredients" @text="recipe"></li>
+</ul>
