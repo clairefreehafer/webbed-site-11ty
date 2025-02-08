@@ -3,4 +3,5 @@ layout: default/_base.webc
 theme: default
 ---
 
+<h3 webc:if="$data.showTitle" @text="$data.title"></h3>
 <section class="content" @raw="content"></section>

@@ -32,8 +32,10 @@
 /*******************/
 h1, h2, h3, h4, h5, h6 {
   @include serif();
+  color: white;
   font-weight: normal;
   text-transform: lowercase;
+  text-shadow: black 1px 0 5px;
 
   & a {
     text-decoration-color: yellow;
@@ -62,12 +64,12 @@ a {
   text-decoration-color: yellow;
   text-decoration-thickness: 2px;
 
-  &.active {
-    font-weight: bold;
-    text-decoration: none;
-    letter-spacing: 0.05rem;
-    font-size: 1.1rem;
-  }
+  // &.active {
+  //   font-weight: bold;
+  //   text-decoration: none;
+  //   letter-spacing: 0.05rem;
+  //   font-size: 1.1rem;
+  // }
 
   &:hover, &:focus {
     background-color: yellow;

@@ -1,5 +1,6 @@
 ---
 title: meal recipes
+showTitle: true
 ---
 
 {%- for recipe in collections.meals %}

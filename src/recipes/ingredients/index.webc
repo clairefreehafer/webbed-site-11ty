@@ -1,5 +1,6 @@
 ---
 title: ingredients
+showTitle: true
 eleventyNavigation:
   key: ingredients
   parent: recipes

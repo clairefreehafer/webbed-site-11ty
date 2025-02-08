@@ -47,9 +47,9 @@ theme: default
   <header class="header">
     <h1>claire freehafer</h1>
     <nav>
-      <ul class="nav-list">
-        <li webc:for="page of $data.collections.root">
-          <a :href="page.url" @text="page.data.title" :class="getActiveNavLink($data.page.url, page.url)"></a>
+      <ul>
+        <li webc:for="page of $data.collections.root" :class="getActiveNavLink($data.page.url, page.url)">
+          <a :href="page.url" @text="page.data.title"></a>
         </li>
       </ul>
     </nav>
@@ -63,7 +63,7 @@ theme: default
     </p>
     <p @text="`last updated ${getBuildDate()}`"></p>
     <p>
-      <a href="/sitemap">site map</a>
+      <a href="/sitemap">🚧 site map 🚧</a>
     </p>
   </footer>
 

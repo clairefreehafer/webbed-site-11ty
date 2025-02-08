@@ -54,15 +54,36 @@ header {
   padding-bottom: 1rem;
 }
 
-ul.nav-list {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  gap: 1rem;
+nav {
+  ul {
+    align-items: center;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 1rem;
 
-  & .active {
-    font-weight: 700;
-    text-decoration: none;
+    li.active {
+      $background-percent: 64%;
+      @include text.serif();
+      background: linear-gradient(
+        to bottom,
+        transparent 0% $background-percent,
+        yellow $background-percent calc($background-percent + 4%),
+        transparent calc($background-percent + 4%)
+      );
+      display: flex;
+      flex-grow: 2;
+      font-size: 2rem;
+      justify-content: center;
+
+      & > a {
+        text-decoration: none;
+        text-shadow: black 1px 0 5px;
+        &:hover {
+          text-shadow: unset;
+        }
+      }
+    }
   }
 }
 

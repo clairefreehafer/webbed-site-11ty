@@ -1,5 +1,6 @@
 ---
 title: cocktail recipes
+showTitle: true
 ---
 
 {%- for recipe in collections.cocktails %}
