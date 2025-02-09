@@ -2,9 +2,13 @@
 title: ingredients
 showTitle: true
 ---
+<!-- webc for eventual styling -->
 
-<ul>
-  <li webc:for="ingredient of $data.collections.ingredients">
-    <a :href="`/recipes/ingredients/${slugify(ingredient)}`" @text="ingredient"></a>
-  </li>
-</ul>
+<div webc:for="ingredientType in $data.recipes.ingredientTypes">
+  <h4 @text="ingredientType"></h4>
+  <ul>
+    <li webc:for="ingredient of $data.recipes.ingredientTypes[ingredientType]">
+      <a :href="`/recipes/ingredients/${slugify(ingredient)}`" @text="ingredient"></a>
+    </li>
+  </ul>
+</div>

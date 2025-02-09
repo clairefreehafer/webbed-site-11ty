@@ -5,8 +5,6 @@ function generateCollections(eleventyConfig) {
     const collectionsToCreate = {
       meals: [],
       cocktails: [],
-      food: [],
-      drink: []
     };
     const ingredientsToAdd = [];
     const recipes = collectionsApi
@@ -22,15 +20,9 @@ function generateCollections(eleventyConfig) {
         collectionsToCreate.cocktails.push(recipe);
       }
       for (const ingredient of ingredients) {
+        // add ingredient to collections.ingredients
         if (!ingredientsToAdd.includes(ingredient)) {
           ingredientsToAdd.push(ingredient);
-          // add ingredient to parent type collection
-          const ingredientType = Object.keys(ingredientTypesData).find((key) => ingredientTypesData[key].includes(ingredient));
-          if (collectionsToCreate[ingredientType]) {
-            collectionsToCreate[ingredientType].push(ingredient);
-          } else {
-            collectionsToCreate[ingredientType] = [ingredient];
-          }
         }
         // add page to ingredient collection
         if (collectionsToCreate[ingredient]) {
@@ -43,7 +35,6 @@ function generateCollections(eleventyConfig) {
 
 
     for (const item in collectionsToCreate) {
-      // console.log(eleventyConfig.getCollections())
       if (!eleventyConfig.getCollections()[item]) {
         // console.log(`[11ty] Creating "${item}" collection with ${collectionsToCreate[item].length} item(s)`);
         eleventyConfig.addCollection(item, (_collectionsApi) => {

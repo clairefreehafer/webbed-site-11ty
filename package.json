@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "debug": "DEBUG=Eleventy* ENVIRONMENT=dev npx @11ty/eleventy",
+    "debug": "rm -rf _site && DEBUG=Eleventy* ENVIRONMENT=dev npx @11ty/eleventy",
     "build": "rm -rf _site && npx @11ty/eleventy",
-    "serve": "rm -rf _site && ENVIRONMENT=dev npx @11ty/eleventy --serve"
+    "serve": "rm -rf _site && ENVIRONMENT=dev npx @11ty/eleventy --serve",
+    "serve-quiet": "rm -rf _site && ENVIRONMENT=dev npx @11ty/eleventy --serve --quiet"
   },
   "repository": {
     "type": "git",
