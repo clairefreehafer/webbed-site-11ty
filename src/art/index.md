@@ -16,7 +16,7 @@ view virtual photography and other work inspired by and created with my favorite
 
 - [animal crossing](/animal-crossing)
 - ~~subnautica~~
-- ~~the witness~~
+- 🚧 [the witness](/the-witness)
 - ~~uncharted 4~~
 - ~~zelda~~
 

@@ -1,0 +1,75 @@
+---
+layout: _base.webc
+theme: the-witness
+---
+
+<div class="background"></div>
+
+<div class="container">
+  <header>
+    <h1>Claire Freehafer</h1>
+  </header>
+  <nav>
+    <div class="nav-border">
+      <div class="puzzle-background" style="background-color:blue">
+        <div class="nav-puzzle">
+          <div class="circle"></div>
+          <div webc:for="page of $data.collections.root" class="section">
+            <div class="nav-link">
+              <a :href="page.url" @text="page.data.title"></a>
+            </div>
+            <div class="elbow">
+              <div class="horizontal"></div>
+              <div class="vertical"></div>
+            </div>
+          </div>
+          <div class="circle opacity-0"></div>
+        </div>
+        <div class="nav-mobile">
+          <navigation></navigation>
+        </div>
+        <div class="inner-shadow"></div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <!-- {{ .Content }}
+
+    {{ $data := dict }}
+    {{ $config := .Site.Data.smugmug.albumImagesConfig | jsonify }}
+    {{ $urlQuery := urlquery $config }}
+
+    {{ if .Site.Param "smugmugApiKey" }}
+      {{ $url := printf  "https://api.smugmug.com/api/v2/album/NwLgn9?APIKey=%s&_config=%s" (.Site.Param "smugmugApiKey") $urlQuery }}
+      {{ $opts := dict
+        "headers" (dict "Accept" "application/json")
+      }}
+      {{ with resources.GetRemote $url $opts }}
+        {{ with .Err }}
+          {{ errorf "%s" . }}
+        {{ else }}
+          {{ $data = . | transform.Unmarshal }}
+        {{ end }}
+      {{ else }}
+        {{ errorf "Unable to get remote resource %q" $url }}
+      {{ end }}
+    {{ else }}
+      no smugmug api key provided.
+    {{ end }}
+
+    {{ range $data.Expansions }}
+      {{ if eq .EndpointType "ImageSizeDetails" }}
+        {{ partial "the-witness/puzzle-border.html" .ImageSizeDetails.ImageSizeLarge }}
+      {{ end }}
+    {{ end }} -->
+
+  </main>
+
+
+  <div @webc:if="process.env.ENVIRONMENT === 'dev'" class="debug">
+    <pre></pre>
+    <div class="puzzle-inset-shadow-helper">
+      <div class="puzzle-inset-shadow"></div>
+    </div>
+  </div>
+</div>
