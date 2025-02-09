@@ -67,5 +67,7 @@ theme: default
     <p @text="`last updated ${getBuildDate()}`"></p>
   </footer>
 
-  <section class="debug" @text="JSON.stringify($data.eleventyNavigation)"></section>
+  <section webc:if="process.env.ENVIRONMENT === 'dev'" class="debug" ">
+    <pre @text="JSON.stringify($data.page)"></pre>
+  </section>
 </div>

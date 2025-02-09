@@ -155,3 +155,16 @@ footer {
   line-height: 1.5;
   padding-top: 1rem;
 }
+
+section.debug {
+  border-top: 1px dotted white;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  overflow-x: scroll;
+  margin-top: 1rem;
+  padding-top: 1rem;
+
+  pre {
+    text-wrap: wrap;
+  }
+}
