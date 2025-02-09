@@ -40,7 +40,7 @@ theme: default
 
   <footer class="footer">
     <p>
-      <a href="/sitemap">🚧 site map 🚧</a>
+      <a href="/sitemap">site map</a>
     </p>
     <p>
       made with <a href="https://11ty.dev" target="_blank">11ty</a> | <s>hosted on <a href="https://neocities.org" target="_blank">neocties</a></s> | source code on <a href="https://github.com/clairefreehafer/webbed-site-11ty">github</a>
