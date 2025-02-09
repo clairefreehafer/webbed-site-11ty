@@ -4,6 +4,8 @@ title: art
 tags: root
 date: 1901-01-01
 layout: default/default.webc
+linkIcon:
+ animal-crossing: camera
 ---
 
 ### ~~photography~~
@@ -12,7 +14,7 @@ layout: default/default.webc
 
 view virtual photography and other work inspired by and created with my favorite video games.
 
-- ~~animal crossing~~
+- [animal crossing](/animal-crossing)
 - ~~subnautica~~
 - ~~the witness~~
 - ~~uncharted 4~~

@@ -3,21 +3,6 @@ layout: _base.webc
 theme: default
 ---
 <script webc:setup>
-  function generateNav(activeKey) {
-    const navPages = eleventyNavigation($data.collections.all);
-    const rootNavPages = navPages.map((page) => {
-      return { ...page, children: undefined };
-    });
-
-    const navigationOptions = {
-      activeAnchorClass: "active",
-      activeKey: activeKey,
-      listClass: "nav-list",
-    };
-
-    return eleventyNavigationToHtml(rootNavPages, navigationOptions);
-  }
-
   function getBuildDate() {
     const today = new Date();
     const dd = String(today.getDate()).padStart(2, '0');
@@ -47,11 +32,7 @@ theme: default
   <header class="header">
     <h1>claire freehafer</h1>
     <nav>
-      <ul>
-        <li webc:for="page of $data.collections.root" :class="getActiveNavLink($data.page.url, page.url)">
-          <a :href="page.url" @text="page.data.title"></a>
-        </li>
-      </ul>
+      <navigation></navigation>
     </nav>
   </header>
 

@@ -12,3 +12,7 @@ ul, ol {
 p {
   line-height: 1.5;
 }
+
+pre {
+  text-wrap: wrap;
+}

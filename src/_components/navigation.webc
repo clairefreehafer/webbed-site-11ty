@@ -1,0 +1,19 @@
+<script webc:setup>
+  function getActiveNavLink(currentUrl, pageUrl) {
+    // do root separate because "/" matches all URLs
+    if (pageUrl === "/" && currentUrl === "/") {
+      return "active";
+    }
+    if (currentUrl.includes(pageUrl) && pageUrl !== "/") {
+      return "active";
+    }
+    return "";
+  }
+</script>
+
+<ul>
+  <li webc:for="page of $data.collections.root" :class="getActiveNavLink($data.page.url, page.url)">
+    <img webc:if="page.data.linkIcon?.[slugify($data.theme)]" :src="`/images/${slugify($data.theme)}/icons/${page.data.linkIcon[slugify($data.theme)]}.png`" alt="" class="icon">
+    <a :href="page.url" @text="page.data.title"></a>
+  </li>
+</ul>

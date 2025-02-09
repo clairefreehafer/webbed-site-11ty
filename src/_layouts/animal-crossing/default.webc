@@ -1,0 +1,25 @@
+---
+layout: _base.webc
+---
+<div class="container">
+  <animal-crossing-logo></animal-crossing-logo>
+  <div class="sand">
+    <nav>
+      <details>
+        <summary>navigation</summary>
+        <navigation></navigation>
+      </details>
+
+      <div class="desktop-menu">
+        <navigation></navigation>
+      </div>
+
+    </nav>
+
+    <main @raw="content"></main>
+  </div>
+
+  <section webc:if="process.env.ENVIRONMENT === 'dev'" class="debug">
+    <pre @text="Object.keys($data.page)"></pre>
+  </section>
+</div>

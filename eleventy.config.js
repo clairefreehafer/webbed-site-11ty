@@ -13,7 +13,7 @@ export default async function(eleventyConfig) {
   eleventyConfig.setLayoutsDirectory("_layouts");
 
   eleventyConfig.addPlugin(pluginWebc, {
-    components: "src/_components/*.webc",
+    components: "src/_components/**/*.webc",
   });
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(recipesPlugin);
@@ -21,6 +21,8 @@ export default async function(eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({ "src/_fonts": "fonts" });
   eleventyConfig.addPassthroughCopy({ "src/_style/base.css": "css/base.css" });
+  eleventyConfig.addPassthroughCopy({ "src/_js": "js" });
+  eleventyConfig.addPassthroughCopy({ "src/_images": "images" });
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
 
   // eleventyConfig.addCollection("meals", (collectionsApi) => {
