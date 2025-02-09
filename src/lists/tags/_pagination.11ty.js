@@ -16,6 +16,9 @@ export const data = {
 }
 
 export function render(data) {
+  if (!data.collections.books) {
+    return "nothing to see.";
+  }
   return `
     <ul>
       ${data.collections.books.map((list) => `

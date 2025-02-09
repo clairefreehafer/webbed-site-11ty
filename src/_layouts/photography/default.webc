@@ -1,0 +1,25 @@
+---
+layout: _base.webc
+---
+
+<header>
+  <h1>claire freehafer</h1>
+  <button type="button" class="navigate" id="nav-button">navigate</button>
+  <a href="/" class="home">return home</a>
+</header>
+
+<nav>
+  <ul>
+    <li><s>today</s></li>
+    <li>recently added</li>
+    <li><a href="/photography/albums">albums</a></li>
+    <li><s>chronological</s></li>
+    <li>collections</li>
+    <li><s>curated</s></li>
+    <li>technical</li>
+    <li><s>map</s></li>
+    <li><s>random</s></li>
+  </ul>
+</nav>
+
+<section class="content" @raw="content"></section>
