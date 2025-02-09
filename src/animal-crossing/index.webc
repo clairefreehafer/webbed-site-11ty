@@ -1,0 +1,32 @@
+---
+name: animal crossing
+title: animal crossing
+theme: animal crossing
+layout: animal-crossing/default.webc
+---
+
+<div class="home-container">
+  <a href="/animal-crossing/pocket-camp">
+    <img src="/images/animal-crossing/journals/stickers.png" class="planner" />
+  </a>
+
+  <div class="nookphone">
+    <div class="row">
+      <img src="/images/animal-crossing/nookphone/signal.png" class="symbols signal" />
+      <p id="time"></p>
+      <img src="/images/animal-crossing/nookphone/location.png" class="symbols location" />
+    </div>
+    <p class="link-title">New Horizons</p>
+    <div class="apps">
+      <div class="camera app"></div>
+      <div class="nook-miles app"></div>
+      <div class="critterpedia app"></div>
+      <div class="diy app"></div>
+      <div class="nook-shopping app"></div>
+      <div class="terraform app"></div>
+      <div class="patterns app"></div>
+      <div class="map app"></div>
+      <div class="chat app"></div>
+    </div>
+  </div>
+</div>
