@@ -3,7 +3,6 @@ import path from "node:path";
 import { transform } from "lightningcss";
 
 import pluginWebc from "@11ty/eleventy-plugin-webc";
-import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
 import recipesPlugin from "./config/recipes-plugin.js";
 import listsPlugin from "./config/lists-plugin.js";
 
@@ -15,7 +14,6 @@ export default async function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginWebc, {
     components: "src/_components/**/*.webc",
   });
-  eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(recipesPlugin);
   eleventyConfig.addPlugin(listsPlugin);
 

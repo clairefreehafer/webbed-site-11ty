@@ -1,6 +1,4 @@
 ---
-eleventyNavigation:
-  key: home
 layout: default/default.webc
 title: home
 tags: root
